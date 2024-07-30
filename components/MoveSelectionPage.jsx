@@ -1,12 +1,12 @@
-'use client'
-import ConfirmButton from "@/components/ConfirmButton/ConfirmButton";
-import MovesList from "@/components/MovesList/MovesList";
-import MovesSelected from "@/components/MovesList/MovesSelected/MovesSelected";
-import PokeImage from "@/components/PokeImage/PokeImage";
-import PokeStats from "@/components/PokeStats/PokeStats";
-import { setStabOnMoves } from "@/services/getPokemonData";
-import getRivalPokemonData from "@/services/getRivalPokemon";
+import ConfirmButton from './ConfirmButton/ConfirmButton.jsx'
+import MovesList from "./MovesList/MovesList.jsx";
+import MovesSelected from "./MovesList/MovesSelected/MovesSelected.jsx";
+import PokeImage from "./PokeImage/PokeImage.jsx";
+import PokeStats from "./PokeStats/PokeStats.jsx";
+import { setStabOnMoves } from "../services/getPokemonData.js";
+import getRivalPokemonData from "../services/getRivalPokemon.js";
 import React, { useState, useEffect } from "react";
+import { Text } from "react-native";
 
 const MoveSelectionPage = ({nextPage, pokemonData, selectedMoves, setSelectedMoves, setRivalPokemonData}) => {
 
@@ -65,11 +65,11 @@ const MoveSelectionPage = ({nextPage, pokemonData, selectedMoves, setSelectedMov
         <PokeStats stats={pokemonData.baseStats}/>
         {
             movesNumberExceeded &&
-            <p style={{textAlign: 'center'}}>You can only set up to four moves</p>
+            <Text style={{textAlign: 'center'}}>You can only set up to four moves</Text>
         }
         {
             noMovesSelected &&
-            <p style={{textAlign: 'center'}}>Please select at least one move</p>
+            <Text style={{textAlign: 'center'}}>Please select at least one move</Text>
         }
         <MovesList moves={pokemonData.moves} addMove={addMove} removeMove={removeMove}/>
         <MovesSelected moves={selectedMoves} />

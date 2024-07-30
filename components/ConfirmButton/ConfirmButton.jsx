@@ -1,23 +1,24 @@
 import React from "react";
 import './ConfirmBtnStyle.css'
+import { View, Text, Pressable } from "react-native";
 
 const ConfirmButton = ({route, ready, confirmText = 'Confirm', loadingText = 'Loading...'}) => {
     if(ready){
         return(
-            <div style={{width: '100%'}}>
-                <button className="confirmWrapper" onClick={route}>
-                    <p className="confirmText">{confirmText}</p>
-                </button>
-            </div>
+            <View style={{width: '100%'}}>
+                <Pressable className="confirmWrapper" onClick={route}>
+                    <Text className="confirmText">{confirmText}</Text>
+                </Pressable>
+            </View>
         )
     }
     else{
         return(
-            <div style={{width: '100%'}}>
-                <button className="confirmWrapper loading" disabled>
-                    <p className="confirmText">{loadingText}</p>
-                </button>
-            </div>
+            <View style={{width: '100%'}}>
+                <Pressable className="confirmWrapper loading" disabled>
+                    <Text className="confirmText">{loadingText}</Text>
+                </Pressable>
+            </View>
         )
     }
 }

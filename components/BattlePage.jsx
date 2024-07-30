@@ -1,8 +1,7 @@
-'use client'
 import React, {useEffect, useState} from "react";
-import BattleContainer from "@/components/BattleComponents/BattleContainer/BattleContainer";
-import { startBattle } from "@/services/battleLogic";
-import ConfirmButton from "./ConfirmButton/ConfirmButton";
+import BattleContainer from "./BattleComponents/BattleContainer/BattleContainer.jsx";
+import { startBattle } from "../services/battleLogic.js";
+import ConfirmButton from "./ConfirmButton/ConfirmButton.jsx";
 
 const BattlePage = ({nextPage, pokemonData, pokemonAttacks, rivalPokemonData, setPokemonData, setRivalPokemonData }) => {
 

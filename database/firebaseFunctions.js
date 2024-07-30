@@ -1,5 +1,5 @@
 // Import the functions you need from the SDKs you need
-import StartingPokemonTeam from "@/utilities/StartingPokemonTeam";
+import StartingPokemonTeam from "../utilities/StartingPokemonTeam.js";
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, setDoc, doc, updateDoc, collection, getDocs } from "firebase/firestore";

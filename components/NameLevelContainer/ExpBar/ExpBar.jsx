@@ -1,4 +1,5 @@
 import React from "react";
+import { View, Text } from "react-native";
 
 const expStyles = {
     wrapper: {
@@ -34,14 +35,14 @@ const ExpBar = ({expPercentage}) => {
 
     return(
         <>
-        <div style={expStyles.wrapper}>
-            <p style={expStyles.label}>Exp</p>
-            <div className="exp-container" style={expStyles.container}>
-                <div className="exp-filling" style={{...expStyles.filling, width: `${expPercentage}%`}}>
+        <View style={expStyles.wrapper}>
+            <Text style={expStyles.label}>Exp</Text>
+            <View className="exp-container" style={expStyles.container}>
+                <View className="exp-filling" style={{...expStyles.filling, width: `${expPercentage}%`}}>
 
-                </div>
-            </div>
-        </div>
+                </View>
+            </View>
+        </View>
         </>
     )
 }

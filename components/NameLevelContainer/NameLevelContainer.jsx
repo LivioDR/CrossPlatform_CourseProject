@@ -1,5 +1,6 @@
 import React from "react";
 import ExpBar from "./ExpBar/ExpBar";
+import { View, Text } from "react-native";
 
 const styles = {
     wrapper: {
@@ -21,17 +22,17 @@ const styles = {
 const NameLevelContainer = ({name, level, expPercentage}) => {
 
     return(
-        <div style={styles.wrapper}>
-            <div style={styles.textContainer}>
-                <h3 style={styles.name}>
+        <View style={styles.wrapper}>
+            <View style={styles.textContainer}>
+                <Text style={styles.name}>
                     {name}
-                </h3>
-                <p style={styles.level}>
+                </Text>
+                <Text style={styles.level}>
                     Lv: {level}
-                </p>
-            </div>
+                </Text>
+            </View>
             <ExpBar expPercentage={expPercentage}/>
-        </div>
+        </View>
     )
 }
 export default NameLevelContainer

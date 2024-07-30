@@ -1,10 +1,9 @@
 import React,{useState, useEffect} from 'react';
 import { StatusBar } from 'expo-status-bar';
-import SelectionPage from '/components/SelectionPage.jsx'
-import MoveSelectionPage from '/components/MoveSelectionPage.jsx'
-import BattlePage from '/components/BattlePage.jsx'
-import Metadata from '/components/Metadata.jsx'
-import Header from '/components/Header/Header.jsx'
+import SelectionPage from './components/SelectionPage.jsx'
+import MoveSelectionPage from './components/MoveSelectionPage.jsx'
+import BattlePage from './components/BattlePage.jsx'
+import Header from './components/Header/Header.jsx'
 
 export default function App() {
   const [selectionPage, setSelectionPage] = useState(true)
@@ -14,11 +13,11 @@ export default function App() {
   const [selectedMoves, setSelectedMoves] = useState([])
   const [rivalPokemonData, setRivalPokemonData] = useState({})
 
-  // ******* TESTING ONLY ******* //
-  if(typeof window != "undefined"){
-    localStorage.setItem("uid","qwertyuiopasdfghjkl")
-  }
-  // ******* TESTING ONLY ******* //
+  // // ******* TESTING ONLY ******* //
+  // if(typeof window != "undefined"){
+  //   localStorage.setItem("uid","qwertyuiopasdfghjkl")
+  // }
+  // // ******* TESTING ONLY ******* //
 
   useEffect(()=>{
     // Managing service worker
@@ -51,9 +50,8 @@ export default function App() {
 
   return (
     <>
-      <Metadata/>
-      <Header/>
       <StatusBar style="auto" />
+      <Header/>
       {
         selectionPage &&
         <SelectionPage nextPage={changeToMoveSelectionPage} pokemonData={pokemonData} setPokemonData={setPokemonData}/>

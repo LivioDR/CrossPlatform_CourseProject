@@ -1,9 +1,9 @@
-'use client'
 import React from "react";
-import { getCurrentLevelExp } from "@/services/battleLogic";
-import NameLevelContainer from "../NameLevelContainer/NameLevelContainer";
-import PokeImage from "../PokeImage/PokeImage";
-import { filterPokemonMovesByLevel, getPokemonCry, getPokemonData, getStatsForLevel } from "@/services/getPokemonData";
+import { getCurrentLevelExp } from "../../services/battleLogic.js";
+import NameLevelContainer from "../NameLevelContainer/NameLevelContainer.jsx";
+import PokeImage from "../PokeImage/PokeImage.jsx";
+import { filterPokemonMovesByLevel, getPokemonCry, getPokemonData, getStatsForLevel } from "../../services/getPokemonData.js";
+import { View } from "react-native";
 
 const cardStyle = {
     container: {
@@ -53,10 +53,10 @@ const PokeCard = ({id, name, lvl, exp, image, selected, setSelected, setPokemonD
     const percentageToNextLevel = ((exp - currLevelExp)/(expNextLevel - currLevelExp)*100)
 
     return(
-        <div style={{...cardStyle.container, backgroundColor: selected == id ? 'teal' : '#3D3D3D'}} onClick={()=>{toggleSelection()}}>
+        <View style={{...cardStyle.container, backgroundColor: selected == id ? 'teal' : '#3D3D3D'}} onClick={()=>{toggleSelection()}}>
             <PokeImage img={image || '/assets/images/rivalPokemonPlaceholder.png'} style={cardStyle.image}/>
             <NameLevelContainer name={name} level={lvl} expPercentage={percentageToNextLevel}/>
-        </div>
+        </View>
     )
 }
 export default PokeCard

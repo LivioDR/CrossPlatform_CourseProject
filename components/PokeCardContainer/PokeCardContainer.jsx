@@ -1,5 +1,6 @@
-import PokeCard from "@/components/PokeCard/PokeCard";
+import PokeCard from "../PokeCard/PokeCard.jsx";
 import React from "react";
+import { View } from "react-native";
 
 const containerStyle = {
     display: 'flex',
@@ -16,9 +17,9 @@ const PokeCardContainer = ({pokeList, selectedPokemon, setSelectedPokemon, setPo
 
 
     return(
-        <div style={containerStyle}>
+        <View style={containerStyle}>
         {pokeList.map(poke =><PokeCard key={poke.id} id={poke.id} name={poke.name} lvl={poke.level} exp={poke.exp} image={poke.image} selected={selectedPokemon} setSelected={setSelectedPokemon} setPokemonData={setPokemonData} setIsDataReady={setIsDataReady}/>)}
-        </div>
+        </View>
     )
 }
 export default PokeCardContainer

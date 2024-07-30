@@ -1,5 +1,5 @@
 import React from "react"
-import Image from "next/image"
+import { View, Image } from "react-native"
 
 const styles = {
     container: {
@@ -20,7 +20,7 @@ const styles = {
 const PokeImage = ({img , style = {}, xAlignment = "center"}) => {
 
     return(
-        <div style={{...styles.container, justifyContent: xAlignment}}>
+        <View style={{...styles.container, justifyContent: xAlignment}}>
             <Image
             src={img}
             width={style.width | 250}
@@ -30,7 +30,7 @@ const PokeImage = ({img , style = {}, xAlignment = "center"}) => {
             style={{...styles.image, ...style}}
             alt={"Pokemon sprite"}
             />
-        </div>
+        </View>
     )
 }
 export default PokeImage

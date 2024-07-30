@@ -1,8 +1,9 @@
-'use client'
-import ConfirmButton from "@/components/ConfirmButton/ConfirmButton"
-import PokeCardContainer from "@/components/PokeCardContainer/PokeCardContainer"
+import { View, Text} from 'react-native'
+import ConfirmButton from "./ConfirmButton/ConfirmButton.jsx"
+import PokeCardContainer from "./PokeCardContainer/PokeCardContainer.jsx"
 import React, { useEffect, useState } from "react"
-import { getCollectionForUserId } from "@/database/firebaseFunctions"
+import { getCollectionForUserId } from "../database/firebaseFunctions.js"
+import userId from '../utilities/userId.js'
 
 const SelectionPage = ({setPokemonData, nextPage}) => {
     const [selectedPokemon, setSelectedPokemon] = useState(0)
@@ -13,9 +14,10 @@ const SelectionPage = ({setPokemonData, nextPage}) => {
     useEffect(()=>{
         const getPokemonData = async() => {
             let result
-            if(typeof window != "undefined"){
-                result = await getCollectionForUserId(localStorage.getItem("uid"))
-            }
+            // if(typeof window != "undefined"){
+            //     result = await getCollectionForUserId(localStorage.getItem("uid"))
+            // }
+            result = await getCollectionForUserId(userId)
             setFetchedPokemon(result)
             setLoading(false)
         }
@@ -24,26 +26,26 @@ const SelectionPage = ({setPokemonData, nextPage}) => {
 
     if(!loading){
         return(
-            <div style={{margin: '0 auto', width: '100%'}}>
+            <View style={{margin: '0 auto', width: '100%'}}>
                 <PokeCardContainer selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon} setIsDataReady={setIsDataReady} pokeList={fetchedPokemon} setPokemonData={setPokemonData}/>
                 { 
                 selectedPokemon !== 0 &&            
                 <ConfirmButton route={nextPage} ready={isDataReady}/>
                 }
-            </div>
+            </View>
         )
     }
     else{
         return(
-            <div style={{
+            <View style={{
                 width: '100vw',
                 height: '90vh',
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
             }}>
-                <p style={{textAlign: 'center'}}>Loading...</p>
-            </div>
+                <Text style={{textAlign: 'center'}}>Loading...</Text>
+            </View>
         )
     }
 }
