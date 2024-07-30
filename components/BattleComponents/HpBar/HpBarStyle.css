@@ -1,0 +1,21 @@
+.hpWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 10px;
+    width: 100%;
+}
+.hpText {
+    width: 10%;
+}
+.hpBackground {
+    height: 100%;
+    background-color: red;
+    width: 100%;
+}
+.hpFill {
+    height: 100%;
+    min-height: 10px;
+    background-color: green;
+    transition: 1s;
+}
