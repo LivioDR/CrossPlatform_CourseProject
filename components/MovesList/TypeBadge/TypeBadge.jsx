@@ -1,4 +1,5 @@
 import React from "react";
+import { View, Text } from "react-native";
 import './TypeBadgeStyle.css'
 
 const typeColor = {
@@ -60,9 +61,9 @@ const typeColor = {
 
 const TypeBadge = ({type}) => {
     return(
-        <div className="typeBadgeContainer" style={{ ...typeColor[type]}}>
-            <p className="typeBadgeText">{type.toUpperCase()}</p>
-        </div>
+        <View className="typeBadgeContainer" style={{ ...typeColor[type]}}>
+            <Text className="typeBadgeText">{type.toUpperCase()}</Text>
+        </View>
     )
 }
 export default TypeBadge

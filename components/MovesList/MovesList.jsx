@@ -1,4 +1,5 @@
 import React from "react";
+import { View } from "react-native";
 import MovesButton from "./MovesButton/MovesButton";
 
 const wrapperStyle = {
@@ -9,9 +10,9 @@ const wrapperStyle = {
 
 const MovesList = ({moves, addMove, removeMove}) => {
     return(
-        <div className="movesListWrapper" style={wrapperStyle}>
+        <View className="movesListWrapper" style={wrapperStyle}>
             {moves.map(move => <MovesButton key={move.id} move={move} addMove={addMove} removeMove={removeMove}/>)}
-        </div>
+        </View>
     )
 
 }

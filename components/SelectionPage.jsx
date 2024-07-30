@@ -19,6 +19,7 @@ const SelectionPage = ({setPokemonData, nextPage}) => {
             // }
             result = await getCollectionForUserId(userId)
             setFetchedPokemon(result)
+            console.log(result)
             setLoading(false)
         }
         getPokemonData()
