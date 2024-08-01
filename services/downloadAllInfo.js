@@ -1,5 +1,5 @@
 import getAllPokemon from "./getAllPokemon"
-import { getPokemonCry, getPokemonData } from "./getPokemonData"
+import { getPokemonData } from "./getPokemonData"
 
 const atkBaseUrl = "https://pokeapi.co/api/v2/move/"
 const imgBaseUrl = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/"
@@ -17,7 +17,6 @@ const getAllInfoForCache = async() => {
         setProgress(10)
         for(let i=1; i<=151; i++){
             await getPokemonData(i)
-            await getPokemonCry(i)
             await fetch(`${imgBaseUrl}${i}.gif`)
             await fetch(`${imgBaseUrl}back/${i}.gif`)
             setProgress(10 + ((i/151) * 40))

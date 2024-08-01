@@ -107,18 +107,6 @@ const setStabOnMoves = (movesArray, typesArray) => {
     return moves
 }
 
-const getPokemonCry = async(id) => {
-    let result
-    try{
-        result = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`).then(res => res.json())
-    }
-    catch(e){
-        console.error(e)
-    }
-    return result.cries.latest
-}
-
-
 const getPokemonData = async(pokemonId) => {
     let pokeData = {}
 
@@ -159,4 +147,4 @@ const filterPokemonMovesByLevel = (pokemonData, level) => {
 }
 
 
-export {getPokemonData, getPokemonStats, getPokemonAttacksFromAllMoves, getPokemonCry, filterPokemonMovesByLevel, getStatsForLevel, setStabOnMoves}
+export {getPokemonData, getPokemonStats, getPokemonAttacksFromAllMoves, filterPokemonMovesByLevel, getStatsForLevel, setStabOnMoves}
