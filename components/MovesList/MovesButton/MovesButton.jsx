@@ -20,7 +20,7 @@ const MovesButton = ({move, addMove, removeMove, actionable = true}) => {
     if(actionable){
         if(isAdded){
             return(
-                <Pressable className="movesButton selected" onClick={()=>removeThisMove()}>
+                <Pressable className="movesButton selected" onPress={()=>removeThisMove()}>
                     <View className="movesButtonTextWrapper">
                         <TypeBadge type={move.type} />
                         {arrayFromLabel.map(text=><Text key={move.id + text} className="movesButtonText">{text}</Text>)}
@@ -30,7 +30,7 @@ const MovesButton = ({move, addMove, removeMove, actionable = true}) => {
         }
         else{
             return(
-                <Pressable className="movesButton not-selected" onClick={()=>addThisMove()}>
+                <Pressable className="movesButton not-selected" onPress={()=>addThisMove()}>
                     <View className="movesButtonTextWrapper">
                         <TypeBadge type={move.type} />
                         {arrayFromLabel.map(text=><Text key={move.id + text} className="movesButtonText">{text}</Text>)}
