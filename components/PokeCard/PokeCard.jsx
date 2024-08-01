@@ -2,20 +2,22 @@ import React from "react";
 import { getCurrentLevelExp } from "../../services/battleLogic.js";
 import NameLevelContainer from "../NameLevelContainer/NameLevelContainer.jsx";
 import PokeImage from "../PokeImage/PokeImage.jsx";
-import { filterPokemonMovesByLevel, getPokemonCry, getPokemonData, getStatsForLevel } from "../../services/getPokemonData.js";
-import { View } from "react-native";
+import { filterPokemonMovesByLevel, getPokemonData, getStatsForLevel } from "../../services/getPokemonData.js";
+import { View, Pressable } from "react-native";
 
 const cardStyle = {
+    pressable: {
+        width: '40%',
+        height: '50%',
+    },
     container: {
-        border: '2px solid red',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',    
-        maxWidth: '48%',
-        minWidth: '250px',
-        maxHeight: '40%',
-        margin: '1%',
+        width: '100%',
+        height: '100%',
+        margin: '5%',
         borderRadius: 20,
     },
     image: {
@@ -33,12 +35,6 @@ const PokeCard = ({id, name, lvl, exp, image, selected, setSelected, setPokemonD
         // changed background
         setSelected(id)
 
-        // played sound effect on selection
-        const cry = await getPokemonCry(id)
-        const cryAudio = new Audio(cry)
-        cryAudio.volume = 0.5
-        cryAudio.play()
-
         // gather all data an store it in state
         let allData = await getPokemonData(id)
         allData = filterPokemonMovesByLevel(allData, lvl)
@@ -53,10 +49,16 @@ const PokeCard = ({id, name, lvl, exp, image, selected, setSelected, setPokemonD
     const percentageToNextLevel = ((exp - currLevelExp)/(expNextLevel - currLevelExp)*100)
 
     return(
-        <View style={{...cardStyle.container, backgroundColor: selected == id ? 'teal' : '#3D3D3D'}} onClick={()=>{toggleSelection()}}>
-            <PokeImage img={image || '/assets/images/rivalPokemonPlaceholder.png'} style={cardStyle.image}/>
-            <NameLevelContainer name={name} level={lvl} expPercentage={percentageToNextLevel}/>
-        </View>
+        <Pressable
+        onPress={toggleSelection}
+        style={cardStyle.pressable}
+        >
+            <View style={{...cardStyle.container, backgroundColor: selected == id ? 'teal' : '#3D3D3D'}}>
+                <PokeImage img={image || '/assets/images/rivalPokemonPlaceholder.png'} style={cardStyle.image}/>
+                <NameLevelContainer name={name} level={lvl} expPercentage={percentageToNextLevel}/>
+            </View>
+        </Pressable>
+        
     )
 }
 export default PokeCard
