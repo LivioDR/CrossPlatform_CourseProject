@@ -1,4 +1,5 @@
 import React from "react";
+import { View } from "react-native";
 import './HpBarStyle.css'
 
 const HpBar = ({stats, reduceToLeft = true}) => {
@@ -7,11 +8,11 @@ const HpBar = ({stats, reduceToLeft = true}) => {
 
     return(
         <>
-        <div className="hpWrapper" style={{ minHeight: 50 }}>
-            <div className="hpBackground" style={{display: 'flex', justifyContent: reduceToLeft ? 'flex-end' : 'flex-start'}}>
-                <div className="hpFill" style={{width: `${remainingHpPercentage}%`}}></div>
-            </div>
-        </div>
+        <View className="hpWrapper" style={{ minHeight: 50 }}>
+            <View className="hpBackground" style={{display: 'flex', justifyContent: reduceToLeft ? 'flex-end' : 'flex-start'}}>
+                <View className="hpFill" style={{width: `${remainingHpPercentage}%`}}></View>
+            </View>
+        </View>
         </>
     )
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { View } from "react-native";
 import StatBar from "./StatBar/StatBar";
 
 const containerStyle = {
@@ -23,9 +24,9 @@ const PokeStats = ({stats}) => {
     }
 
     return(
-        <div style={containerStyle}>
+        <View style={containerStyle}>
             {arrayOfStats?.map(stat => <StatBar name={stat.name} value={stat.value} maxValue={maxValue} key={stat.value + stat.name}/>)}
-        </div>
+        </View>
     )
 }
 export default PokeStats

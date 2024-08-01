@@ -1,4 +1,5 @@
 import React from "react";
+import { View, Text } from "react-native";
 
 const styles = {
     container: {
@@ -10,7 +11,7 @@ const styles = {
         marginBottom: '2%',
     },
     statName: {
-        fontSize: '0.5em',
+        fontSize: 12,
         width: '10%',
     },
     barContainer: {
@@ -21,7 +22,7 @@ const styles = {
     },
     statNumber :{
         width: '5%',
-        fontSize: '0.5em',
+        fontSize: 12,
     }
 }
 
@@ -29,14 +30,14 @@ const styles = {
 const StatBar = ({name, value, maxValue}) => {
     const percentage = (value/maxValue)*100
     return(
-        <div style={styles.container}>
-            <p style={styles.statName}>{name}</p>
-            <div style={styles.barContainer}>
-                <div style={{...styles.statBar, width:`${percentage}%`, backgroundColor: `hsl(${percentage}deg 60% 45%)`}}> 
-                </div>
-            </div>
-            <p style={styles.statNumber}>{value}</p>
-        </div>
+        <View style={styles.container}>
+            <Text style={styles.statName}>{name}</Text>
+            <View style={styles.barContainer}>
+                <View style={{...styles.statBar, width:`${percentage}%`, backgroundColor: `hsl(${percentage}deg 60% 45%)`}}> 
+                </View>
+            </View>
+            <Text style={styles.statNumber}>{value}</Text>
+        </View>
     )
 }
 export default StatBar
