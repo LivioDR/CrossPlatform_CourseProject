@@ -1,9 +1,22 @@
-import { View, Text} from 'react-native'
+import React, { useEffect, useState } from "react"
+import { View, Text, ScrollView} from 'react-native'
+import { StyleSheet } from "react-native"
 import ConfirmButton from "./ConfirmButton/ConfirmButton.jsx"
 import PokeCardContainer from "./PokeCardContainer/PokeCardContainer.jsx"
-import React, { useEffect, useState } from "react"
 import { getCollectionForUserId } from "../database/firebaseFunctions.js"
 import userId from '../utilities/userId.js'
+
+const scrollStyle = StyleSheet.create({
+    contentOffset: {x: 0, y: 0},
+    backgroundColor: 'lightgray',
+    display: 'flex',
+    justifyContent: 'flex-start',
+    flexDirection: 'row',
+    flexGrow: 4,
+    minHeight: '75%',
+    width: '100%',
+    overflow: 'scroll',
+})
 
 const SelectionPage = ({setPokemonData, nextPage}) => {
     const [selectedPokemon, setSelectedPokemon] = useState(0)
@@ -13,13 +26,8 @@ const SelectionPage = ({setPokemonData, nextPage}) => {
 
     useEffect(()=>{
         const getPokemonData = async() => {
-            let result
-            // if(typeof window != "undefined"){
-            //     result = await getCollectionForUserId(localStorage.getItem("uid"))
-            // }
-            result = await getCollectionForUserId(userId)
+            let result = await getCollectionForUserId(userId)
             setFetchedPokemon(result)
-            console.log(result)
             setLoading(false)
         }
         getPokemonData()
@@ -27,20 +35,22 @@ const SelectionPage = ({setPokemonData, nextPage}) => {
 
     if(!loading){
         return(
-            <View style={{margin: '0 auto', width: '100%'}}>
-                <PokeCardContainer selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon} setIsDataReady={setIsDataReady} pokeList={fetchedPokemon} setPokemonData={setPokemonData}/>
-                { 
-                selectedPokemon !== 0 &&            
-                <ConfirmButton route={nextPage} ready={isDataReady}/>
-                }
+            <View style={{display: 'flex', flexDirection: 'column', height: '100%'}}>
+                <ScrollView>
+                    <PokeCardContainer selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon} setIsDataReady={setIsDataReady} pokeList={fetchedPokemon} setPokemonData={setPokemonData}/>
+                    { 
+                    selectedPokemon !== 0 &&
+                    <ConfirmButton route={nextPage} ready={isDataReady}/>
+                    }
+                </ScrollView>
             </View>
         )
     }
     else{
         return(
             <View style={{
-                width: '100vw',
-                height: '90vh',
+                width: '100%',
+                height: '90%',
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',

@@ -11,7 +11,7 @@ const expStyles = {
     },
     label: {
         width: '20%',
-        fontSize: 'small',
+        fontSize: 12,
     },
     container: {
         width: '80%',

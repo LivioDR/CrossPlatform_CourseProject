@@ -9,8 +9,8 @@ const styles = {
         alignItems: 'center',
     },
     image: {
-        width: 250,
-        height: 250,
+        width: 25,
+        height: 25,
         objectFit: 'contain',
         margin: '0 auto',
     }
@@ -18,19 +18,14 @@ const styles = {
 
 
 const PokeImage = ({img , style = {}, xAlignment = "center"}) => {
-
-    return(
-        <View style={{...styles.container, justifyContent: xAlignment}}>
-            <Image
-            src={img}
-            width={style.width | 250}
-            height={style.height | 250}
-            unoptimized
-            priority
-            style={{...styles.image, ...style}}
-            alt={"Pokemon sprite"}
-            />
-        </View>
-    )
+        return(
+            <View style={{...styles.container, justifyContent: xAlignment}}>
+                <Image
+                source={{uri: img}}
+                style={{...styles.image, ...style}}
+                alt="Pokemon sprite"
+                />
+            </View>
+        )
 }
 export default PokeImage

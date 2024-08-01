@@ -7,7 +7,7 @@ const containerStyle = {
     flexDirection: 'row',
     flexWrap: 'wrap',
     width: '100%',
-    height: '80vh',
+    height: '50%',
     overflowY: 'scroll',
     justifyContent: 'space-evenly',
 }
