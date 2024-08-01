@@ -1,19 +1,18 @@
 import React from "react";
-import './HeaderStyle.css'
 import { View, Image, Text } from "react-native";
+import HeaderStyle from "./HeaderStyle.js";
 
 const Header = () => {
     return(
         <>
-        <View className="headerContainer">
+        <View style={HeaderStyle.container}>
             <Image
-                src={require('../../assets/images/logo192.png')}
-                width={50}
-                height={50}
+                source={require('../../assets/images/logo192.png')}
+                style={HeaderStyle.image}
                 alt="App icon"
                 className="image"
             />   
-            <Text className="headerTitle">PokeBattle RPG</Text>
+            <Text style={HeaderStyle.title}>PokeBattle RPG</Text>
         </View>
         </>
     )
