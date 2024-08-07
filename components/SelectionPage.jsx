@@ -10,12 +10,12 @@ const scrollStyle = StyleSheet.create({
     contentOffset: {x: 0, y: 0},
     backgroundColor: 'lightgray',
     display: 'flex',
+    flexWrap: 'wrap',
     justifyContent: 'flex-start',
     flexDirection: 'row',
-    flexGrow: 4,
-    minHeight: '75%',
-    width: '100%',
-    overflow: 'scroll',
+    flexGrow: 1,
+    minHeight: '80%',
+    overflowY: 'scroll',
 })
 
 const SelectionPage = ({setPokemonData, nextPage}) => {
@@ -35,14 +35,14 @@ const SelectionPage = ({setPokemonData, nextPage}) => {
 
     if(!loading){
         return(
-            <View style={{display: 'flex', flexDirection: 'column', height: '100%'}}>
-                <ScrollView>
+            <View style={{display: 'flex', flexDirection: 'column', height: '90%', backgroundColor: 'black'}}>
+                <ScrollView contentContainerStyle={scrollStyle}>
                     <PokeCardContainer selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon} setIsDataReady={setIsDataReady} pokeList={fetchedPokemon} setPokemonData={setPokemonData}/>
-                    { 
-                    selectedPokemon !== 0 &&
-                    <ConfirmButton route={nextPage} ready={isDataReady}/>
-                    }
                 </ScrollView>
+                { 
+                selectedPokemon !== 0 &&
+                <ConfirmButton route={nextPage} ready={isDataReady}/>
+                }
             </View>
         )
     }

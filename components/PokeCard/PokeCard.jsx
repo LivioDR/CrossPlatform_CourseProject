@@ -8,21 +8,27 @@ import { View, Pressable } from "react-native";
 const cardStyle = {
     pressable: {
         width: '40%',
-        height: '50%',
+        height: '25%',
+        marginVertical: '5%',
+        marginHorizontal: '5%',
     },
     container: {
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',    
+        justifyContent: 'flex-start',
+        alignItems: 'center',   
+        textAlign: 'center', 
         width: '100%',
         height: '100%',
-        margin: '5%',
+        marginVertical: '5%',
+        marginHorizontal: '0%',
         borderRadius: 20,
+        gap: 5,
     },
     image: {
-        width: '50%',
-        height: '90%',
+        width: '100%',
+        height: 50,
+        margin: '0%',
     }
 }
 

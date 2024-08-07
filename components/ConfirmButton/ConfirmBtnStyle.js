@@ -3,11 +3,12 @@ import { StyleSheet } from "react-native";
 export default ConfirmBtnStyle = StyleSheet.create({
     confirmWrapper: {
         width: '50%',
-        margin: '0 auto',
+        marginHorizontal: '25%',
+        marginVertical: '1%',
         alignItems: 'center',
         textAlign: 'center',
-        backgroundColor: 'aqua',
-        height: '3em',
+        backgroundColor: 'teal',
+        height: '90%',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
@@ -15,9 +16,10 @@ export default ConfirmBtnStyle = StyleSheet.create({
     },
     confirmText: {
         fontSize: 14,
-        color: 'black',
+        color: 'white',
     },
     loading: {
         backgroundColor: 'lightgrey',
+        color: 'black',
     }
 })
