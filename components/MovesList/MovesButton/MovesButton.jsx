@@ -1,6 +1,6 @@
 import React,{ useState } from "react";
 import { View, Text, Pressable } from "react-native";
-import './MovesButtonStyle.css'
+import MovesButtonStyle from "./MovesButtonStyle";
 import TypeBadge from "../TypeBadge/TypeBadge";
 
 const MovesButton = ({move, addMove, removeMove, actionable = true}) => {
@@ -20,20 +20,20 @@ const MovesButton = ({move, addMove, removeMove, actionable = true}) => {
     if(actionable){
         if(isAdded){
             return(
-                <Pressable className="movesButton selected" onPress={()=>removeThisMove()}>
-                    <View className="movesButtonTextWrapper">
+                <Pressable style={{...MovesButtonStyle.movesButton, ...MovesButtonStyle.selected}} onPress={()=>removeThisMove()}>
+                    <View style={MovesButtonStyle.movesButtonTextWrapper}>
                         <TypeBadge type={move.type} />
-                        {arrayFromLabel.map(text=><Text key={move.id + text} className="movesButtonText">{text}</Text>)}
+                        {arrayFromLabel.map(text=><Text key={move.id + text} style={MovesButtonStyle.movesButtonText}>{text}</Text>)}
                     </View>
                 </Pressable>
             )
         }
         else{
             return(
-                <Pressable className="movesButton not-selected" onPress={()=>addThisMove()}>
-                    <View className="movesButtonTextWrapper">
+                <Pressable style={{...MovesButtonStyle.movesButton, ...MovesButtonStyle.notSelected}} onPress={()=>addThisMove()}>
+                    <View style={MovesButtonStyle.movesButtonTextWrapper}>
                         <TypeBadge type={move.type} />
-                        {arrayFromLabel.map(text=><Text key={move.id + text} className="movesButtonText">{text}</Text>)}
+                        {arrayFromLabel.map(text=><Text key={move.id + text} style={MovesButtonStyle.movesButtonText}>{text}</Text>)}
                     </View>
                 </Pressable>
             )
@@ -41,10 +41,10 @@ const MovesButton = ({move, addMove, removeMove, actionable = true}) => {
     }
     else{
         return(
-            <Pressable className="movesButton not-selected">
-            <View className="movesButtonTextWrapper">
+            <Pressable style={{...MovesButtonStyle.movesButton, ...MovesButtonStyle.notSelected}}>
+            <View style={MovesButtonStyle.movesButtonTextWrapper}>
                 <TypeBadge type={move.type} />
-                {arrayFromLabel.map(text=><Text key={move.id + text} className="movesButtonText">{text}</Text>)}
+                {arrayFromLabel.map(text=><Text key={move.id + text} style={MovesButtonStyle.movesButtonText}>{text}</Text>)}
             </View>
         </Pressable>
         )

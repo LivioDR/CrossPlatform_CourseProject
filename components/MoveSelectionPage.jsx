@@ -6,7 +6,27 @@ import PokeStats from "./PokeStats/PokeStats.jsx";
 import { setStabOnMoves } from "../services/getPokemonData.js";
 import getRivalPokemonData from "../services/getRivalPokemon.js";
 import React, { useState, useEffect } from "react";
-import { Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
+
+
+const moveSelectionPageStyles = StyleSheet.create({
+    container: {
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        height: '50%',
+    },
+    image: {
+        maxHeight: 200,
+        height: "40%",
+        width: "100%",
+        backgroundColor: "red", // DELETE LATER
+    },
+    movesContainer: {
+
+    }
+})
+
 
 const MoveSelectionPage = ({nextPage, pokemonData, selectedMoves, setSelectedMoves, setRivalPokemonData}) => {
 
@@ -60,24 +80,24 @@ const MoveSelectionPage = ({nextPage, pokemonData, selectedMoves, setSelectedMov
     },[selectedMoves])
 
     return(
-        <>
-        <PokeImage img={pokemonData.front_image}/>
-        <PokeStats stats={pokemonData.baseStats}/>
+        <View style={moveSelectionPageStyles.container}>
+        <PokeImage img={pokemonData.front_image} style={moveSelectionPageStyles.image}/>
         {
             movesNumberExceeded &&
-            <Text style={{textAlign: 'center'}}>You can only set up to four moves</Text>
+            <Text style={{margin: '0%', textAlign: 'center'}}>You can only set up to four moves</Text>
         }
         {
             noMovesSelected &&
-            <Text style={{textAlign: 'center'}}>Please select at least one move</Text>
+            <Text style={{height: 18 ,margin: '0%', textAlign: 'center'}}>Please select at least one move</Text>
         }
-        <MovesList moves={pokemonData.moves} addMove={addMove} removeMove={removeMove}/>
-        <MovesSelected moves={selectedMoves} />
+        <View style={moveSelectionPageStyles.movesContainer}>
+            <MovesList moves={pokemonData.moves} addMove={addMove} removeMove={removeMove}/>
+        </View>
         {
             areMovesOkay &&
             <ConfirmButton confirmText="Start Battle" loadingText="Searching for an opponent" ready={!loadingRival} route={()=>moveToBattle()} />
         }
-        </>
+        </View>
     )
 }
 export default MoveSelectionPage
