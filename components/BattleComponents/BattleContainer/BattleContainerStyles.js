@@ -19,7 +19,8 @@ const BattleContainerStyles = StyleSheet.create({
         maxHeight: 200,
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'flex',
+        justifyContent: 'flex-end',
+        alignContent: 'flex-end',
         width: '25%', 
         marginLeft: '70%',
         marginRight: '5%',
@@ -46,7 +47,7 @@ const BattleContainerStyles = StyleSheet.create({
         minWidth: 150,
     },
     textWrapper: {
-        width: '90%', 
+        width: '100%', 
         display: 'flex', 
         flexDirection: 'row', 
         justifyContent: 'flex-start', 
