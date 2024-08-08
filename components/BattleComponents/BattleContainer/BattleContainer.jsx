@@ -10,14 +10,18 @@ const BattleContainer = ({pokemonData, rivalPokemonData, battleText}) => {
     return(
         <View style={BattleContainerStyles.wrapper}>
             <View style={BattleContainerStyles.battleSceneContainer}>
-                {/* <HpBar stats={rivalPokemonData.baseStats} reduceToLeft={true} /> */}
+                <View style={BattleContainerStyles.enemyHpBar}>
+                    <HpBar stats={rivalPokemonData.baseStats} reduceToLeft={true} />
+                </View>
                 <View style={BattleContainerStyles.enemyImageContainer}>
-                    <PokeImage img={rivalPokemonData.front_image || '/assets/images/rivalPokemonPlaceholder.png'} style={{...BattleContainerStyles.image, height: '25%'}} />
+                    <PokeImage img={rivalPokemonData.front_image || '/assets/images/rivalPokemonPlaceholder.png'} style={{...BattleContainerStyles.image}} />
                 </View>
                 <View style={BattleContainerStyles.myImageContainer}>
                     <PokeImage img={pokemonData.back_image || '/assets/images/pokemonBackPlaceholder.gif'} style={BattleContainerStyles.image} />
                 </View>
-                {/* <HpBar stats={pokemonData.baseStats} reduceToLeft={false} /> */}
+                <View style={BattleContainerStyles.myHpBar}>
+                    <HpBar stats={pokemonData.baseStats} reduceToLeft={false} />
+                </View>
             </View>
             <View className="battleContainerRow" id="battleTextGraph" style={BattleContainerStyles.textWrapper}>
                 <BattleText text={battleText} />

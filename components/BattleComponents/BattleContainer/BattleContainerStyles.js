@@ -6,44 +6,49 @@ const BattleContainerStyles = StyleSheet.create({
         width: "100%",
     },
     battleSceneContainer: {
-        maxHeight: 400,
+        maxHeight: 500,
         width: "100%",
     },
     enemyHpBar: {
-
+        height: 50,
+        width: '100%',
+        backgroundColor: 'yellow', // DELETE LATER
     },
     enemyImageContainer: {
         minHeight: 150,
-        width: '100%',
+        maxHeight: 200,
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'flex',
-        backgroundColor: 'yellow' // DELETE LATER
+        width: '30%', 
+        marginLeft: '70%',
     },
     myImageContainer: {
         minHeight: 250,
-        width: '100%',
+        maxHeight: 300,
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'flex-start',
-        backgroundColor: 'blue', // DELETE LATER
+        width: '30%',
+        marginRight: '70%',
     },
     myHpBar: {
-
+        height: 50,
+        width: '100%',
+        backgroundColor: 'yellow', // DELETE LATER
     },
     image: {
         margin: '0%',
         height: '50%',
         width: '100%',
         minWidth: 150,
-        backgroundColor: 'teal', // DELETE LATER
     },
     textWrapper: {
         width: '90%', 
         display: 'flex', 
         flexDirection: 'row', 
         justifyContent: 'flex-start', 
-        margin: 30,
+        padding: 20,
     },
 })
 
