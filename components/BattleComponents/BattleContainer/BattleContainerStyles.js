@@ -20,8 +20,9 @@ const BattleContainerStyles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'flex',
-        width: '30%', 
+        width: '25%', 
         marginLeft: '70%',
+        marginRight: '5%',
     },
     myImageContainer: {
         minHeight: 250,
@@ -29,8 +30,9 @@ const BattleContainerStyles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'flex-start',
-        width: '30%',
+        width: '25%',
         marginRight: '70%',
+        marginLeft: '5%',
     },
     myHpBar: {
         height: 50,
