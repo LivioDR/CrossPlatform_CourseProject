@@ -1,8 +1,6 @@
 import ConfirmButton from './ConfirmButton/ConfirmButton.jsx'
 import MovesList from "./MovesList/MovesList.jsx";
-import MovesSelected from "./MovesList/MovesSelected/MovesSelected.jsx";
 import PokeImage from "./PokeImage/PokeImage.jsx";
-import PokeStats from "./PokeStats/PokeStats.jsx";
 import { setStabOnMoves } from "../services/getPokemonData.js";
 import getRivalPokemonData from "../services/getRivalPokemon.js";
 import React, { useState, useEffect } from "react";
@@ -13,18 +11,34 @@ const moveSelectionPageStyles = StyleSheet.create({
     container: {
         display: 'flex',
         flexDirection: 'column',
+        // flexWrap: 'wrap',
         justifyContent: 'center',
-        height: '50%',
+        height: '90vh',
+    },
+    imageSection: {
+        flexGrow: 3,
+        maxHeight: 200,
+    },
+    labelSection: {
+        flexGrow: 1,
+        maxHeight: 50,
+    },
+    movesSection: {
+        flexGrow: 5,
+        maxHeight: 350,
+        marginBottom: 10,
+    },
+    buttonSection: {
+        flexGrow: 1,
     },
     image: {
-        maxHeight: 200,
-        height: "40%",
+        maxHeight: 250,
+        height: "80%",
         width: "100%",
-        backgroundColor: "red", // DELETE LATER
     },
-    movesContainer: {
-
-    }
+    button: {
+        height: '20%',
+    },
 })
 
 
@@ -81,22 +95,28 @@ const MoveSelectionPage = ({nextPage, pokemonData, selectedMoves, setSelectedMov
 
     return(
         <View style={moveSelectionPageStyles.container}>
-        <PokeImage img={pokemonData.front_image} style={moveSelectionPageStyles.image}/>
-        {
-            movesNumberExceeded &&
-            <Text style={{margin: '0%', textAlign: 'center'}}>You can only set up to four moves</Text>
-        }
-        {
-            noMovesSelected &&
-            <Text style={{height: 18 ,margin: '0%', textAlign: 'center'}}>Please select at least one move</Text>
-        }
-        <View style={moveSelectionPageStyles.movesContainer}>
-            <MovesList moves={pokemonData.moves} addMove={addMove} removeMove={removeMove}/>
-        </View>
-        {
-            areMovesOkay &&
-            <ConfirmButton confirmText="Start Battle" loadingText="Searching for an opponent" ready={!loadingRival} route={()=>moveToBattle()} />
-        }
+            <View style={moveSelectionPageStyles.imageSection}>
+                <PokeImage img={pokemonData.front_image} style={moveSelectionPageStyles.image}/>
+            </View>
+            <View style={moveSelectionPageStyles.movesSection}>
+                <MovesList moves={pokemonData.moves} addMove={addMove} removeMove={removeMove}/>
+            </View>
+            <View style={moveSelectionPageStyles.labelSection}>
+                {
+                    movesNumberExceeded &&
+                    <Text style={{margin: '0%', textAlign: 'center'}}>You can only set up to four moves</Text>
+                }
+                {
+                    noMovesSelected &&
+                    <Text style={{height: 18 ,margin: '0%', textAlign: 'center'}}>Please select at least one move</Text>
+                }
+            </View>
+            <View style={moveSelectionPageStyles.buttonSection}>
+                {
+                    areMovesOkay &&
+                    <ConfirmButton style={moveSelectionPageStyles.button} confirmText="Start Battle" loadingText="Searching for an opponent" ready={!loadingRival} route={()=>moveToBattle()} />
+                }
+            </View>
         </View>
     )
 }
