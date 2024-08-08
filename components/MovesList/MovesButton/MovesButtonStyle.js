@@ -3,7 +3,6 @@ import { StyleSheet } from "react-native";
 const MovesButtonStyle = StyleSheet.create({
     movesButton: {
         width: '90%',
-        height: '3em',
         borderRadius: 25,
         marginHorizontal: '5%',
         marginVertical: '1%',
