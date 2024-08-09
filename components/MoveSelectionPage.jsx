@@ -13,15 +13,18 @@ const moveSelectionPageStyles = StyleSheet.create({
         flexDirection: 'column',
         // flexWrap: 'wrap',
         justifyContent: 'center',
-        height: '90vh',
+        height: '100%',
+        backgroundColor: "#3d3d3d",
     },
     imageSection: {
         flexGrow: 3,
         maxHeight: 200,
+        backgroundColor: '#3d3d3d'
     },
     labelSection: {
         flexGrow: 1,
         maxHeight: 50,
+        backgroundColor: "#3d3d3d",
     },
     movesSection: {
         flexGrow: 5,
@@ -31,13 +34,19 @@ const moveSelectionPageStyles = StyleSheet.create({
     buttonSection: {
         flexGrow: 1,
     },
+    text: {
+        color: 'white',
+        height: 18, 
+        margin: '0%', 
+        textAlign: 'center',
+    },
     image: {
         maxHeight: 250,
         height: "80%",
         width: "100%",
     },
     button: {
-        height: '20%',
+        height: 50,
     },
 })
 
@@ -104,11 +113,11 @@ const MoveSelectionPage = ({nextPage, pokemonData, selectedMoves, setSelectedMov
             <View style={moveSelectionPageStyles.labelSection}>
                 {
                     movesNumberExceeded &&
-                    <Text style={{margin: '0%', textAlign: 'center'}}>You can only set up to four moves</Text>
+                    <Text style={moveSelectionPageStyles.text}>You can only set up to four moves</Text>
                 }
                 {
                     noMovesSelected &&
-                    <Text style={{height: 18 ,margin: '0%', textAlign: 'center'}}>Please select at least one move</Text>
+                    <Text style={moveSelectionPageStyles.text}>Please select at least one move</Text>
                 }
             </View>
             <View style={moveSelectionPageStyles.buttonSection}>
@@ -117,6 +126,7 @@ const MoveSelectionPage = ({nextPage, pokemonData, selectedMoves, setSelectedMov
                     <ConfirmButton style={moveSelectionPageStyles.button} confirmText="Start Battle" loadingText="Searching for an opponent" ready={!loadingRival} route={()=>moveToBattle()} />
                 }
             </View>
+            {/* <View style={{backgroundColor: "#3d3d3d", height: 200}}></View> */}
         </View>
     )
 }

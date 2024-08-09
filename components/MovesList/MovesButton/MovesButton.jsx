@@ -23,7 +23,7 @@ const MovesButton = ({move, addMove, removeMove, actionable = true}) => {
                 <Pressable style={{...MovesButtonStyle.movesButton, ...MovesButtonStyle.selected}} onPress={()=>removeThisMove()}>
                     <View style={MovesButtonStyle.movesButtonTextWrapper}>
                         <TypeBadge type={move.type} />
-                        {arrayFromLabel.map(text=><Text key={move.id + text} style={MovesButtonStyle.movesButtonText}>{text}</Text>)}
+                        {arrayFromLabel.map(text=><Text key={move.id + text} style={{...MovesButtonStyle.movesButtonText, ...MovesButtonStyle.selected}}>{text}</Text>)}
                     </View>
                 </Pressable>
             )

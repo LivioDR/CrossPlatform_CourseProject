@@ -70,7 +70,7 @@ const SelectionPage = ({setPokemonData, nextPage}) => {
                 justifyContent: 'center',
                 alignItems: 'center',
             }}>
-                <Text style={{textAlign: 'center'}}>Loading...</Text>
+                <Text style={{textAlign: 'center', color: 'white'}}>Loading...</Text>
             </View>
         )
     }

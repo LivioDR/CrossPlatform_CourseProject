@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import { View } from "react-native";
 import BattleContainer from "./BattleComponents/BattleContainer/BattleContainer.jsx";
 import { startBattle } from "../services/battleLogic.js";
 import ConfirmButton from "./ConfirmButton/ConfirmButton.jsx";
@@ -17,13 +18,15 @@ const BattlePage = ({nextPage, pokemonData, pokemonAttacks, rivalPokemonData, se
     },[])
 
     return(
-        <>
+        <View style={{height: '100%', width: '100%'}}>
             <BattleContainer pokemonData={pokemonData} rivalPokemonData={rivalPokemonData} battleText={text} />
+            <View style={{height: 100, width: '100%'}}>
             {
                 isBattleOver &&
-                <ConfirmButton confirmText="New game?" route={nextPage} ready={true} />
+                <ConfirmButton style={{height: 50}} confirmText="New game?" route={nextPage} ready={true} />
             }
-        </>
+            </View>
+        </View>
     )
 }
 export default BattlePage

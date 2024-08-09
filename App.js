@@ -1,4 +1,5 @@
 import React,{useState, useEffect} from 'react';
+import { View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import SelectionPage from './components/SelectionPage.jsx'
 import MoveSelectionPage from './components/MoveSelectionPage.jsx'
@@ -12,12 +13,6 @@ export default function App() {
   const [pokemonData, setPokemonData] = useState({})
   const [selectedMoves, setSelectedMoves] = useState([])
   const [rivalPokemonData, setRivalPokemonData] = useState({})
-
-  // // ******* TESTING ONLY ******* //
-  // if(typeof window != "undefined"){
-  //   localStorage.setItem("uid","qwertyuiopasdfghjkl")
-  // }
-  // // ******* TESTING ONLY ******* //
 
   useEffect(()=>{
     // Managing service worker
@@ -49,7 +44,7 @@ export default function App() {
   }
 
   return (
-    <>
+    <View style={{backgroundColor: "#3d3d3d"}}>
       <StatusBar style="auto" />
       <Header/>
       {
@@ -64,6 +59,6 @@ export default function App() {
         battlePage &&
         <BattlePage nextPage={changeToSelectionPage} pokemonData={pokemonData} pokemonAttacks={selectedMoves} rivalPokemonData={rivalPokemonData} setPokemonData={setPokemonData} setRivalPokemonData={setRivalPokemonData} />
       }
-    </>
+    </View>
   );
 }
