@@ -14,10 +14,12 @@ const styles = {
     name: {
         WebkitTextStroke: '0.2px black',
         color: 'white',
+        fontSize: 18,
     },
     level: {
         WebkitTextStroke: '0.5px black',
         color: 'white',
+        fontSize: 12,
     }
 }
 

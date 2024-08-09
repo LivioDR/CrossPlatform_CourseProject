@@ -3,11 +3,12 @@ import { View, Text } from "react-native";
 
 const expStyles = {
     wrapper: {
-        width: '90%',
+        width: '100%',
         height: 20,
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
+        marginTop: 15,
     },
     label: {
         width: '20%',
