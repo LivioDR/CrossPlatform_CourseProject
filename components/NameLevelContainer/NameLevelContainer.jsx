@@ -5,7 +5,7 @@ import { View, Text } from "react-native";
 const styles = {
     wrapper: {
         width: '90%',
-        margin: '2%',
+        margin: '5%',
     },
     textContainer: {
         textAlign: 'center',
@@ -13,9 +13,11 @@ const styles = {
     },
     name: {
         WebkitTextStroke: '0.2px black',
+        color: 'white',
     },
     level: {
         WebkitTextStroke: '0.5px black',
+        color: 'white',
     }
 }
 

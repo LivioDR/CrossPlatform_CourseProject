@@ -5,29 +5,31 @@ import PokeImage from "../PokeImage/PokeImage.jsx";
 import { filterPokemonMovesByLevel, getPokemonData, getStatsForLevel } from "../../services/getPokemonData.js";
 import { View, Pressable } from "react-native";
 
+
 const cardStyle = {
-    pressable: {
-        width: '40%',
-        height: '25%',
-        marginVertical: '5%',
-        marginHorizontal: '5%',
-    },
-    container: {
+    wrapper: {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'flex-start',
-        alignItems: 'center',   
+        width: '40%',
+        marginVertical: 10,
+        marginHorizontal: '5%',
+        minHeight: 100,
+        maxHeight: 250,
+        borderRadius: 20,
+    },
+    pressable: {
+        width: "100%",
+        height: "100%",
+    },
+    container: {
         textAlign: 'center', 
         width: '100%',
-        height: '100%',
-        marginVertical: '5%',
-        marginHorizontal: '0%',
-        borderRadius: 20,
-        gap: 5,
+        height: 150,
     },
     image: {
         width: '100%',
-        height: 50,
+        height: 100,
         margin: '0%',
     }
 }
@@ -55,16 +57,17 @@ const PokeCard = ({id, name, lvl, exp, image, selected, setSelected, setPokemonD
     const percentageToNextLevel = ((exp - currLevelExp)/(expNextLevel - currLevelExp)*100)
 
     return(
-        <Pressable
-        onPress={toggleSelection}
-        style={cardStyle.pressable}
-        >
-            <View style={{...cardStyle.container, backgroundColor: selected == id ? 'teal' : '#3D3D3D'}}>
-                <PokeImage img={image || '/assets/images/rivalPokemonPlaceholder.png'} style={cardStyle.image}/>
-                <NameLevelContainer name={name} level={lvl} expPercentage={percentageToNextLevel}/>
-            </View>
-        </Pressable>
-        
+        <View style={{...cardStyle.wrapper, backgroundColor: selected == id ? 'teal' : '#3D3D3D'}}>
+            <Pressable
+            onPress={toggleSelection}
+            style={cardStyle.pressable}
+            >
+                <View style={cardStyle.container}>
+                    <PokeImage img={image || '/assets/images/rivalPokemonPlaceholder.png'} style={cardStyle.image}/>
+                    <NameLevelContainer name={name} level={lvl} expPercentage={percentageToNextLevel}/>
+                </View>
+            </Pressable>
+        </View>
     )
 }
 export default PokeCard

@@ -3,8 +3,8 @@ import { View, Text } from "react-native";
 
 const expStyles = {
     wrapper: {
-        width: '100%',
-        height: '2em',
+        width: '90%',
+        height: 20,
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
@@ -12,34 +12,35 @@ const expStyles = {
     label: {
         width: '20%',
         fontSize: 12,
+        color: 'white',
     },
     container: {
         width: '80%',
-        height: '2em',
+        height: 20,
         borderRadius: 50,
         backgroundColor: 'skyblue',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'flex-start',
-        border: '1px solid black',
     },
     filling: {
         borderRadius: 50,
+        height: 20,
         backgroundColor: 'deepskyblue',
-        border: '1px solid black',
     },
 }
 
 
 const ExpBar = ({expPercentage}) => {
 
+    const percentage = 15 + ((expPercentage*85)/100)
+
     return(
         <>
         <View style={expStyles.wrapper}>
             <Text style={expStyles.label}>Exp</Text>
-            <View className="exp-container" style={expStyles.container}>
-                <View className="exp-filling" style={{...expStyles.filling, width: `${expPercentage}%`}}>
-
+            <View style={expStyles.container}>
+                <View style={{...expStyles.filling, width: `${percentage}%`}}>
                 </View>
             </View>
         </View>

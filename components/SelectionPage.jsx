@@ -6,16 +6,29 @@ import PokeCardContainer from "./PokeCardContainer/PokeCardContainer.jsx"
 import { getCollectionForUserId } from "../database/firebaseFunctions.js"
 import userId from '../utilities/userId.js'
 
-const scrollStyle = StyleSheet.create({
-    contentOffset: {x: 0, y: 0},
-    backgroundColor: 'lightgray',
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'flex-start',
-    flexDirection: 'row',
-    flexGrow: 1,
-    minHeight: '80%',
-    overflowY: 'scroll',
+const selectionStyles = StyleSheet.create({
+    wrapper: {
+        display: 'flex', 
+        flexDirection: 'column', 
+        height: '90%', 
+        backgroundColor: 'black',
+        width: '100%',
+    },
+    scrollStyle: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+        width: '100%',
+        minHeight: 300,
+        overflowY: 'scroll',
+    },
+    buttonWrapper: {
+        flexGrow: 1,
+        minHeight: 50,
+    },
+    button: {
+        height: 50,
+    }
 })
 
 const SelectionPage = ({setPokemonData, nextPage}) => {
@@ -35,14 +48,16 @@ const SelectionPage = ({setPokemonData, nextPage}) => {
 
     if(!loading){
         return(
-            <View style={{display: 'flex', flexDirection: 'column', height: '90%', backgroundColor: 'black'}}>
-                <ScrollView contentContainerStyle={scrollStyle}>
+            <View style={selectionStyles.wrapper}>
+                <ScrollView contentContainerStyle={selectionStyles.scrollStyle}>
                     <PokeCardContainer selectedPokemon={selectedPokemon} setSelectedPokemon={setSelectedPokemon} setIsDataReady={setIsDataReady} pokeList={fetchedPokemon} setPokemonData={setPokemonData}/>
                 </ScrollView>
-                { 
-                selectedPokemon !== 0 &&
-                <ConfirmButton route={nextPage} ready={isDataReady}/>
-                }
+                <View style={selectionStyles.buttonWrapper}>
+                    { 
+                    selectedPokemon !== 0 &&
+                    <ConfirmButton route={nextPage} ready={isDataReady} style={selectionStyles.button}/>
+                    }
+                </View>
             </View>
         )
     }
