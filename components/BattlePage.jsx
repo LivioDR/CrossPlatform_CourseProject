@@ -23,7 +23,7 @@ const BattlePage = ({nextPage, pokemonData, pokemonAttacks, rivalPokemonData, se
             <View style={{height: 100, width: '100%'}}>
             {
                 isBattleOver &&
-                <ConfirmButton style={{height: 50}} confirmText="New game?" route={nextPage} ready={true} />
+                <ConfirmButton style={{height: 100, paddingBottom: 50}} confirmText="New game" route={nextPage} ready={true} />
             }
             </View>
         </View>

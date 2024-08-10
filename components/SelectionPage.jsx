@@ -27,7 +27,8 @@ const selectionStyles = StyleSheet.create({
         minHeight: 50,
     },
     button: {
-        height: 50,
+        height: 60,
+        paddingBottom: 10,
     }
 })
 
