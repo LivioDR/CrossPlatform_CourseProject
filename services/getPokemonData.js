@@ -1,3 +1,16 @@
+import AsyncStorage from "@react-native-async-storage/async-storage"
+import { Platform } from "react-native"
+import { Cache } from "react-native-cache"
+
+const cache = new Cache({
+    namespace: 'pokemon',
+    policy: {
+        maxEntries: 10000,
+        stdTTL: 0,
+    },
+    backend: AsyncStorage,
+})
+
 const getPokemonStats = (data) => {
     
     let statsToStore = {}
@@ -49,7 +62,13 @@ const getStatsForLevel = (baseStats, level) => {
 
 const getAttackInfo = async(atkUrl, lang = 'en') => {
     try{
-        let data = await fetch(atkUrl).then(res => res.json())
+        let data = await cache.get(atkUrl)
+        if(!data){
+            data = await fetch(atkUrl).then(res => res.json())
+            if(Platform.OS == 'ios'){
+                await cache.set(atkUrl,data)
+            }
+        }
         let attackData = {
             accuracy: data.accuracy == null ? 100 : data.accuracy,
             name: data.names.filter(names => names.language.name == lang),
@@ -111,7 +130,13 @@ const getPokemonData = async(pokemonId) => {
     let pokeData = {}
 
     try{
-        let result = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}/`).then(res => res.json())
+        let result = await cache.get(`https://pokeapi.co/api/v2/pokemon/${pokemonId}/`)
+        if(!result){
+            result = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}/`).then(res => res.json())
+            if(Platform.OS == 'ios'){
+                cache.set(`https://pokeapi.co/api/v2/pokemon/${pokemonId}/`,result)
+            }
+        }
         const image = result.sprites.other.showdown.front_default
         const imageBack = result.sprites.other.showdown.back_default
     

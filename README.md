@@ -70,3 +70,9 @@ Once done, go to FOL > Evaluation > Submissions and submit the following to the 
 ## A link to your video.
 [ ] The link can be included in the submission comments.
 [ ] The video can be hosted on Loom, Vidyard, YouTube, or a similar streaming service (as long as I don’t need to log in to watch it).
+
+## Libraries used
+- [firebase](https://docs.expo.dev/guides/using-firebase/)
+- [react-native-async-storage](https://react-native-async-storage.github.io/async-storage/)
+- [react-native-cache](https://www.npmjs.com/package/react-native-cache)
+

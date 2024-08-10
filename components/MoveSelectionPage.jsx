@@ -13,7 +13,7 @@ const moveSelectionPageStyles = StyleSheet.create({
         flexDirection: 'column',
         // flexWrap: 'wrap',
         justifyContent: 'center',
-        height: '100%',
+        height: '90%',
         backgroundColor: "#3d3d3d",
     },
     imageSection: {
@@ -28,7 +28,7 @@ const moveSelectionPageStyles = StyleSheet.create({
     },
     movesSection: {
         flexGrow: 5,
-        maxHeight: 350,
+        maxHeight: 300,
         marginBottom: 10,
     },
     buttonSection: {

@@ -1,7 +1,19 @@
 const baseUrl = "https://pokeapi.co/api/v2/type/"
+import { Cache } from "react-native-cache"
+import AsyncStorage from "@react-native-async-storage/async-storage"
+import { Platform } from "react-native"
 
 const getAllPokemon = async() => {
-    let allPokemon = []
+
+    const cache = new Cache({
+        namespace: 'pokemon',
+        policy: {
+            maxEntries: 10000,
+            stdTTL: 0,
+        },
+        backend: AsyncStorage,
+    })
+
 
     try{
         // Fetching the first page of the endpoint
@@ -13,24 +25,16 @@ const getAllPokemon = async() => {
         // Merging the results
         types.results = [...types.results, ...secondPage.results]
     
-        // Goign through the results to fetch the details for every type
-        // try{
+        // Going through the results to fetch the details for every type
             for( let i=0; i<types.count; i++){
                 let result = await fetch(types.results[i]?.url).then(res => res.json())
-                allPokemon.push(...result.pokemon.map(poke => poke.pokemon.name))
+                if(Platform.OS == 'ios'){
+                    await cache.set(types.results[i]?.url, result)
+                }
             }
-        // }
-        // catch(e){
-        //     console.error(e)
-        // }
-        // Getting all unique results
-        allPokemon = [...new Set(allPokemon)]
-        // Then sorting them in ascending order before returning it
-        allPokemon.sort()
     }
     catch(e){
         console.error(e)
     }
-    return allPokemon
 }
 export default getAllPokemon

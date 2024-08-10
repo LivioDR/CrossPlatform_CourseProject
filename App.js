@@ -1,10 +1,11 @@
 import React,{useState, useEffect} from 'react';
-import { View } from 'react-native';
+import { Platform, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import SelectionPage from './components/SelectionPage.jsx'
 import MoveSelectionPage from './components/MoveSelectionPage.jsx'
 import BattlePage from './components/BattlePage.jsx'
 import Header from './components/Header/Header.jsx'
+import getAllInfoForCache from './services/getAllInfoForCache.js';
 
 export default function App() {
   const [selectionPage, setSelectionPage] = useState(true)
@@ -15,9 +16,9 @@ export default function App() {
   const [rivalPokemonData, setRivalPokemonData] = useState({})
 
   useEffect(()=>{
-    // Managing service worker
-    if('serviceWorker' in navigator){
-      navigator.serviceWorker.register('/serviceWorker.js')
+    // Managing cache for ios on AsyncStorage
+    if(Platform.OS == 'ios'){
+      getAllInfoForCache()
     }
   },[])
 
