@@ -1,9 +1,7 @@
-# INFO-6129
-# Cross Platform Mobile Development
+# INFO-6129 - Cross Platform Mobile Development
 ---
-## Livio Reinoso
-## ID 1165606
-## Course Project - PokeBattle RPG
+## Course Project: PokeBattle RPG
+### Livio Reinoso - ID 1165606
 ---
 # Planning
 ---
@@ -88,6 +86,8 @@ To include more uncertainty to the damage to be done from one pokemon to the oth
 
 After the HP of one of the pokemon reaches zero, the battle ends. Depending on the outcome of the battle, (i.e. if the player’s pokemon defeats the opponent pokemon) the user will catch the opponent pokemon and the winning pokemon will earn experience points (EXP) that will allow them to level up and learn new moves. The player will then be taken back into the updated selection screen.
 
+---
+
 ## APIs to use
 - [PokeAPI](https://pokeapi.co/docs/v2): to get the pokemon and moves data.
 - [Firebase Firestore SDK](https://firebase.google.com/docs/firestore/client/libraries): to store the state of the user’s pokemon collection.
@@ -126,9 +126,14 @@ After the HP of one of the pokemon reaches zero, the battle ends. Depending on t
 
 ## Assets references
 - [Logo image](https://www.flaticon.com/free-icon/mystic_189011)
-![Logo image](https://www.flaticon.com/free-icon/mystic_189011)
+
+![Logo image](https://cdn-icons-png.flaticon.com/512/189/189011.png)
+
 - [Background Image](https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/204364595/original/86db6005cd51b4f60e71cca277f603a82cf5646a/draw-a-pixel-pokemon-battle-background.png)
+
 ![Background Image](https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/204364595/original/86db6005cd51b4f60e71cca277f603a82cf5646a/draw-a-pixel-pokemon-battle-background.png)
+
+---
 
 # Annex A - [Project diagram](https://drive.google.com/file/d/1t6F9h_XUMR8oMUFlOlaPRfSz3zyOXZDT/view?usp=sharing)
 The following diagram represents the project structure. 
@@ -136,6 +141,7 @@ The green colored elements represent what was created for this project, while th
 The orange components are the starting and end points of each one of the app screens.
 ![Project diagram](./assets/images/documentation/annexAppStructure.png)
 
+---
 
 # Annex B - [iOS and Android cache strategies](https://drive.google.com/file/d/1t6F9h_XUMR8oMUFlOlaPRfSz3zyOXZDT/view?usp=sharing)
 The app stores the data retrieved from the API on the AsyncStorage with the use of the react-native-cache library. 
