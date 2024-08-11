@@ -133,6 +133,14 @@ After the HP of one of the pokemon reaches zero, the battle ends. Depending on t
 
 ![Background Image](https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/204364595/original/86db6005cd51b4f60e71cca277f603a82cf5646a/draw-a-pixel-pokemon-battle-background.png)
 
+- [Ditto](https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/132.gif)
+
+![Ditto](https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/132.gif)
+
+- [Pokemon ghost](https://www.lifewire.com/thmb/htqRVxl-KVsa4jLcCuZN3rUCZaU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/PokeGhost-5bc39ae74cedfd0051154962.png)
+
+![Pokemon ghost](https://www.lifewire.com/thmb/htqRVxl-KVsa4jLcCuZN3rUCZaU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/PokeGhost-5bc39ae74cedfd0051154962.png)
+
 ---
 
 # Annex A - [Project diagram](https://drive.google.com/file/d/1t6F9h_XUMR8oMUFlOlaPRfSz3zyOXZDT/view?usp=sharing)
