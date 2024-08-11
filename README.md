@@ -124,7 +124,23 @@ After the HP of one of the pokemon reaches zero, the battle ends. Depending on t
 
 ---
 
-## Assets references
+# Annex A - [Project diagram](https://drive.google.com/file/d/1t6F9h_XUMR8oMUFlOlaPRfSz3zyOXZDT/view?usp=sharing)
+The following diagram represents the project structure. 
+The green colored elements represent what was created for this project, while the elements left without a color are the ones that are intended to be implemented in the future for this app. 
+The orange components are the starting and end points of each one of the app screens.
+![Project diagram](./assets/images/documentation/annexAppStructure.png)
+
+---
+
+# Annex B - [iOS and Android cache strategies](https://drive.google.com/file/d/1t6F9h_XUMR8oMUFlOlaPRfSz3zyOXZDT/view?usp=sharing)
+The app stores the data retrieved from the API on the AsyncStorage with the use of the react-native-cache library. 
+However, this is only applicable for the iOS version of the app, which provides “unlimited” storage space in the AsyncStorage. 
+This is not the case for Android where there’s only 6Mb of data storage available, which is not enough to hold all the pokemon and moves data (~200Mb).
+![Cache strategies](./assets/images/documentation/annexCacheStrategies.png)
+
+---
+
+## Annex C - Assets references
 - [Logo image](https://www.flaticon.com/free-icon/mystic_189011)
 
 ![Logo image](https://cdn-icons-png.flaticon.com/512/189/189011.png)
@@ -140,19 +156,3 @@ After the HP of one of the pokemon reaches zero, the battle ends. Depending on t
 - [Pokemon ghost](https://www.lifewire.com/thmb/htqRVxl-KVsa4jLcCuZN3rUCZaU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/PokeGhost-5bc39ae74cedfd0051154962.png)
 
 ![Pokemon ghost](https://www.lifewire.com/thmb/htqRVxl-KVsa4jLcCuZN3rUCZaU=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/PokeGhost-5bc39ae74cedfd0051154962.png)
-
----
-
-# Annex A - [Project diagram](https://drive.google.com/file/d/1t6F9h_XUMR8oMUFlOlaPRfSz3zyOXZDT/view?usp=sharing)
-The following diagram represents the project structure. 
-The green colored elements represent what was created for this project, while the elements left without a color are the ones that are intended to be implemented in the future for this app. 
-The orange components are the starting and end points of each one of the app screens.
-![Project diagram](./assets/images/documentation/annexAppStructure.png)
-
----
-
-# Annex B - [iOS and Android cache strategies](https://drive.google.com/file/d/1t6F9h_XUMR8oMUFlOlaPRfSz3zyOXZDT/view?usp=sharing)
-The app stores the data retrieved from the API on the AsyncStorage with the use of the react-native-cache library. 
-However, this is only applicable for the iOS version of the app, which provides “unlimited” storage space in the AsyncStorage. 
-This is not the case for Android where there’s only 6Mb of data storage available, which is not enough to hold all the pokemon and moves data (~200Mb).
-![Cache strategies](./assets/images/documentation/annexCacheStrategies.png)
