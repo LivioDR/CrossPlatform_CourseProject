@@ -11,6 +11,7 @@
 ## Project Idea
 
 The project idea to implement what I have learned throughout the course is an idle [Role-Playing Game](https://en.wikipedia.org/wiki/Role-playing_video_game) (RPG) based on the Pokemon main series games (MSG). This will be implemented on three different screens to be described in the next few sections.
+
 ---
 ## Selection screen
 
@@ -21,12 +22,14 @@ This list of available pokemon will increase whenever the player defeats a new p
 The data to populate the list is being taken from Firestore, by using a UID hardcoded for this project. One of the proposed next steps after the completion of this project is to implement a register and login page, so each user can have their own collection of pokemon and individual progress.
 
 After the user selects a pokemon the information about its stats and moves is requested from the cache or the PokeAPI, depending on the availability of information in the cache. Once the information is correctly loaded, a confirmation button is enabled, allowing the user to move to the next screen by conditionally rendering it upon tapping this button.
+
 ---
 ### Pokemon level and experience points
 
 The level of these pokemon will increase too while using them in battle and defeating other pokemon. To increase their level, a pokemon should earn a certain amount of experience, according to the table available in [this table](https://bulbapedia.bulbagarden.net/wiki/Experience#Experience_at_each_level). The equation chosen to calculate the experience curve of all pokemon in this app is the [Medium Slow](https://bulbapedia.bulbagarden.net/wiki/Experience#Medium_Slow). 
 
 The experience earned on each battle depends on the rival pokemon and its level and will only be earned if the player wins the battle. The formula used to calculate the [amount of earned experience](https://bulbapedia.bulbagarden.net/wiki/Experience#Experience_gain_in_battle) is the one from Generation VII onwards, setting all the latest variables to 1 by default for the purposes of this application.
+
 ---
 ## Moves Selection screen
 
@@ -37,6 +40,7 @@ The moves are classified into two main categories: 💥physical moves, and 🌀s
 Each move will have a base power and an accuracy stat. The first is the value that will be used along with the Atk/SpA stat to calculate the intended damage, while the second is the probability of this attack to hit or miss the opponent.
 
 Last but not least, each move will have a typing, which will apply different multipliers to the intended damage and the effective received damage (more about this in the [Battle screen section](#battle-screen)).
+
 ---
 ## Battle screen
 
@@ -52,6 +56,7 @@ At the bottom of the screen a message will display what is going on during the b
 ### Damage calculation
 
 To calculate the damage to be done by a pokemon attack to the defending pokemon the app uses the MSG from [generation V onward damage formula](https://bulbapedia.bulbagarden.net/wiki/Damage#Generation_V_onward). This formula is based on many factors, but a simplified version of it was implemented for this app. The implemented version will take into account:
+
 - Power of the selected move (after [STAB calculation](#type-effectiveness))
 - Level of the attacking pokemon
 - The Atk or SpA stat of the attacking pokemon
@@ -76,6 +81,7 @@ If an electric-type move is used by an electric-type pokemon against a dual wate
 ### Random factor
 
 To include more uncertainty to the damage to be done from one pokemon to the other every time that a move is selected, a random factor is added into the damage calculation formula, that will modify the final damage in a range going from 85% to 100%.
+
 ---
 
 ## Battle outcome
@@ -85,12 +91,14 @@ After the HP of one of the pokemon reaches zero, the battle ends. Depending on t
 ## APIs to use
 - [PokeAPI](https://pokeapi.co/docs/v2): to get the pokemon and moves data.
 - [Firebase Firestore SDK](https://firebase.google.com/docs/firestore/client/libraries): to store the state of the user’s pokemon collection.
+
 ---
 
 ## Libraries to use
 - [Firebase](https://docs.expo.dev/guides/using-firebase/): to store the state of the user’s pokemon collection
 - [React-native-async-storage](https://react-native-async-storage.github.io/async-storage/): to locally store the PokeAPI data to access it faster than from the internet (iOS, please see [Annex B](#annex-b---ios-and-android-cache-strategies)).
 - [React-native-cache](https://www.npmjs.com/package/react-native-cache): builded on top of AsyncStorage to help with the data storage and retrieval (iOS, please see [Annex B](#annex-b---ios-and-android-cache-strategies)).
+
 ---
 
 ## Potential risks
@@ -99,6 +107,7 @@ After the HP of one of the pokemon reaches zero, the battle ends. Depending on t
 - The components integration can make the application hard to implement at first, taking into account the interactions between them and the styling of them.
 - The functionality of the whole project depends entirely on the status of the PokeAPI being up, so an API shortage can compromise the app.
 - A slow internet connection can compromise the user experience until the assets are correctly cached, in particular for some pokemon that can learn an unusual number of moves, such as Mew.
+
 ---
 
 ## Future improvements
@@ -112,6 +121,7 @@ After the HP of one of the pokemon reaches zero, the battle ends. Depending on t
 - Lock the screen in portrait mode.
 - Animating the battle background image.
 - Add offline support.
+
 ---
 
 ## Assets references
@@ -124,10 +134,11 @@ After the HP of one of the pokemon reaches zero, the battle ends. Depending on t
 The following diagram represents the project structure. 
 The green colored elements represent what was created for this project, while the elements left without a color are the ones that are intended to be implemented in the future for this app. 
 The orange components are the starting and end points of each one of the app screens.
+![Project diagram](./assets/images/documentation/annexAppStructure.png)
 
 
 # Annex B - [iOS and Android cache strategies](https://drive.google.com/file/d/1t6F9h_XUMR8oMUFlOlaPRfSz3zyOXZDT/view?usp=sharing)
 The app stores the data retrieved from the API on the AsyncStorage with the use of the react-native-cache library. 
 However, this is only applicable for the iOS version of the app, which provides “unlimited” storage space in the AsyncStorage. 
 This is not the case for Android where there’s only 6Mb of data storage available, which is not enough to hold all the pokemon and moves data (~200Mb).
-
+![Cache strategies](./assets/images/documentation/annexCacheStrategies.png)
