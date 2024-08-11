@@ -3,7 +3,7 @@
 ## Course Project: PokeBattle RPG
 ### Livio Reinoso - ID 1165606
 ---
-# Planning
+# Planning document
 ---
 
 ## Project Idea
@@ -124,7 +124,7 @@ After the HP of one of the pokemon reaches zero, the battle ends. Depending on t
 
 ---
 
-# Annex A - [Project diagram](https://drive.google.com/file/d/1t6F9h_XUMR8oMUFlOlaPRfSz3zyOXZDT/view?usp=sharing)
+## Annex A - [Project diagram](https://drive.google.com/file/d/1t6F9h_XUMR8oMUFlOlaPRfSz3zyOXZDT/view?usp=sharing)
 The following diagram represents the project structure. 
 The green colored elements represent what was created for this project, while the elements left without a color are the ones that are intended to be implemented in the future for this app. 
 The orange components are the starting and end points of each one of the app screens.
@@ -132,7 +132,7 @@ The orange components are the starting and end points of each one of the app scr
 
 ---
 
-# Annex B - [iOS and Android cache strategies](https://drive.google.com/file/d/1t6F9h_XUMR8oMUFlOlaPRfSz3zyOXZDT/view?usp=sharing)
+## Annex B - [iOS and Android cache strategies](https://drive.google.com/file/d/1t6F9h_XUMR8oMUFlOlaPRfSz3zyOXZDT/view?usp=sharing)
 The app stores the data retrieved from the API on the AsyncStorage with the use of the react-native-cache library. 
 However, this is only applicable for the iOS version of the app, which provides “unlimited” storage space in the AsyncStorage. 
 This is not the case for Android where there’s only 6Mb of data storage available, which is not enough to hold all the pokemon and moves data (~200Mb).
